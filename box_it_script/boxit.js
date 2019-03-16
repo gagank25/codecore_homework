@@ -3,7 +3,7 @@ const inputs = process.argv.slice(2);
 function drawLine(num) {
 
     let line = '';
-    
+
     //console.log("Value of maxLength in drawLine: " + num);
 
     for(let i = 0; i < num; i++) {
@@ -115,38 +115,25 @@ function boxIt(arrOfStrings) {
 
         for (let i = 0; i < lengthOfInput; i++) {
 
-            if (i !== lengthOfInput - 1) {
-                //console.log("LenghtofInput is: " + i);
-                let stringToAdd = arrOfStrings[i];
-                let lengthToAdd = maxLength - arrOfStrings[i].length;
-                //console.log("Number of sapces to add: " + lengthToAdd);
-                spaces = spaces.repeat(lengthToAdd);
-                //console.log("Spaces: " + spaces);
-                if (spaces.length > 0) {
-                    stringToAdd = stringToAdd + spaces;
-                    //console.log("String to add: " + stringToAdd);
-                }
-
-                finalOutput += drawBarsAround(stringToAdd) + '\n' + drawMiddleBorder(maxLength) + '\n' ;
-                spaces = ' ';
-
-            } else {
-
-                //console.log("LenghtofInput2 is: " + i);
-                let stringToAdd = arrOfStrings[i];
-                let lengthToAdd = maxLength - arrOfStrings[i].length;
-                //console.log("Number of sapces to add: " + lengthToAdd);
-                spaces = spaces.repeat(lengthToAdd);
-                //console.log("Spaces: " + spaces);
-                if (spaces.length > 0) {
-                    stringToAdd = stringToAdd + spaces;
-                    //console.log("String to add: " + stringToAdd);
-                }
-
-                finalOutput += drawBarsAround(stringToAdd) + '\n';
-                spaces = ' ';
-
+            //console.log("LenghtofInput is: " + i);
+            let stringToAdd = arrOfStrings[i];
+            let lengthToAdd = maxLength - arrOfStrings[i].length;
+            //console.log("Number of sapces to add: " + lengthToAdd);
+            spaces = spaces.repeat(lengthToAdd);
+            //console.log("Spaces: " + spaces);
+            if (spaces.length > 0) {
+                stringToAdd = stringToAdd + spaces;
+                //console.log("String to add: " + stringToAdd);
             }
+
+            //HACKING THIS; HOW else do this outlier case check TA?
+            if (i !== lengthOfInput - 1) {
+                finalOutput += drawBarsAround(stringToAdd) + '\n' + drawMiddleBorder(maxLength) + '\n' ;
+            } else {
+                finalOutput += drawBarsAround(stringToAdd) + '\n';
+            }
+
+            spaces = ' ';
         }
 
         finalOutput = finalOutput + drawBottomBorder(maxLength);
