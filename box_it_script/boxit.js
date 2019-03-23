@@ -109,7 +109,8 @@ function boxIt(arrOfStrings) {
     if (lengthOfInput > 1) {
 
         let spaces = ' ';
-        //console.log("Length of spaces initially: " + spaces.length);
+        
+        console.log("Length of spaces initially: " + spaces.length);
 
         finalOutput = drawTopBorder(maxLength) + '\n';
 
@@ -143,7 +144,7 @@ function boxIt(arrOfStrings) {
         let spaces = ' ';
         let stringToAdd = arrOfStrings[0];
         let lengthToAdd = maxLength - arrOfStrings[0].length;
-
+        
         //console.log("Max Length is: " + maxLength);
         
         finalOutput += drawTopBorder(maxLength) + '\n' + drawBarsAround(stringToAdd) + '\n' + drawBottomBorder(maxLength);

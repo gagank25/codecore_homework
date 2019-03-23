@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Animations</title>
+</head>
+
+<style>
+    @keyframes switchcolor {
+        from {background-color: red; }
+        to {background-color: yellow; }
+    }
+    #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation-name: switchcolor;
+        animation-duration: 10s;
+    }
+</style>
+<body>
+    <div id="box"></div>
+</body>
+</html>

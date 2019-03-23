@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Display block</title>
+        <style>
+            p {
+                background-color: black;
+                color: white;
+                width: 300px;
+            }
+            .inline {
+                display: inline;
+                /*this rule does not go well with inline elements: 
+                Same thing goes with the properties height, top, bottom, margin
+                */
+                width: 300px;
+            } 
+            .none {
+                display: none;
+            }
+        </style>
+
+    </head>
+    <body>
+        <p>
+            Box 1
+        </p>
+        <p>
+            Box 2
+        </p>
+        <p class="inline">
+            Box 3
+        </p>
+        <p class="inline">
+            Box 4
+        </p>
+        <p class="inline-block">
+            Box 4 - inline
+        </p>
+        <p class="inline-block">
+            Box 5 - inline block
+        </p>
+        <p class='none'>
+            Box 6 - invisible block
+        </p>
+    </body>
+</head>
+</html>
