@@ -1,6 +1,6 @@
 class turtle {
-    
-    constructor (x,y) {
+
+    constructor(x, y) {
         this.x = x;
         this.y = y;
         this.direction = 'EAST';
@@ -9,10 +9,10 @@ class turtle {
         this.allPositions.push([this.x, this.y]);
         console.log("Starting current legnth: " + this.allPositions.length);
         console.log("Starting current position: " + this.allPositions[0]);
-      
+
     }
 
-    forward (num) {
+    forward(num) {
 
         let x = 0;
         let y = 0;
@@ -20,7 +20,7 @@ class turtle {
         //let length = this.allPositions.length;
 
         if (num > 0) { //check to see forward is a positive integer
-            if (currentDirection === 'EAST'){
+            if (currentDirection === 'EAST') {
 
                 for (let i = 0; i < num; i++) {
                     console.log("Current length of array before push : " + this.allPositions.length);
@@ -28,11 +28,11 @@ class turtle {
                     this.allPositions.push([x, this.y]) //do not change y
                     this.x++;
                     console.log("Current length of array after push : " + this.allPositions.length);
-                    console.log("Current forward position: " + this.allPositions[this.allPositions.length-1]);
+                    console.log("Current forward position: " + this.allPositions[this.allPositions.length - 1]);
                 }
                 console.log("Current length of array: " + this.allPositions.length);
                 //this.x = this.x + num;
-                console.log("Final position after calling Forward1: " + "[X: "+ this.x + ", Y: " + this.y + "]" );
+                console.log("Final position after calling Forward1: " + "[X: " + this.x + ", Y: " + this.y + "]");
                 //this.y = this.y; //redundant
 
             } else if (currentDirection === 'WEST') {
@@ -41,51 +41,51 @@ class turtle {
                     x = this.x - 1;
                     this.allPositions.push([x, this.y]) //do not change y
                     this.x--;
-                    console.log("Current forward position: " + this.allPositions[this.allPositions.length-1]);
+                    console.log("Current forward position: " + this.allPositions[this.allPositions.length - 1]);
                 }
                 console.log("Current length of array: " + this.allPositions.length);
                 //this.x = this.x + num;
-                console.log("Final position after calling Forward2: " + "[X: "+ this.x + ", Y: " + this.y + "]" );
+                console.log("Final position after calling Forward2: " + "[X: " + this.x + ", Y: " + this.y + "]");
                 this.y = this.y; //redundant
 
             } else if (currentDirection === 'NORTH') {
 
                 for (let i = 0; i < num; i++) {
-                    y = this.y + 1;
+                    y = this.y -1 ;
                     this.allPositions.push([this.x, y]) //do not change x
-                    this.y++;
-                    console.log("Current forward position: " + this.allPositions[this.allPositions.length-1]);
+                    this.y--;
+                    console.log("Current forward position: " + this.allPositions[this.allPositions.length - 1]);
                 }
                 console.log("Current length of array: " + this.allPositions.length);
                 //this.x = this.x + num;
-                console.log("Final position after calling Forward3: " + "[X: "+ this.x + ", Y: " + this.y + "]" );
+                console.log("Final position after calling Forward3: " + "[X: " + this.x + ", Y: " + this.y + "]");
                 this.x = this.x; //redundant
 
             } else if (currentDirection === 'SOUTH') {
 
                 for (let i = 0; i < num; i++) {
-                    y = this.y - 1;
+                    y = this.y + 1;
                     this.allPositions.push([this.x, y]) //do not change x
-                    this.y--;
-                    console.log("Current forward position: " + this.allPositions[this.allPositions.length-1]);
+                    this.y++;
+                    console.log("Current forward position: " + this.allPositions[this.allPositions.length - 1]);
                 }
                 console.log("Current length of array: " + this.allPositions.length);
                 //this.x = this.x + num;
-                console.log("Final position after calling Forward4: " + "[X: "+ this.x + ", Y: " + this.y + "]" );
+                console.log("Final position after calling Forward4: " + "[X: " + this.x + ", Y: " + this.y + "]");
                 this.x = this.x; //redundant
 
             }
         } else if (num <= 0) {
             //do nothing, i.e. keep the position and direction of the turtle as is
             console.log("Current direction of turtle is: " + this.direction);
-            console.log("Current position of turtle  if forward is 0: " + this.allPositions[this.allPositions.length-1]);
+            console.log("Current position of turtle  if forward is 0: " + this.allPositions[this.allPositions.length - 1]);
         } else {
             console.log("Am i here");
         }
         return this;
     }
-    
-    right () {
+
+    right() {
 
         console.log('Current direction BEFORE turning RIGHT: ' + this.direction);
         if (this.direction === 'EAST') {
@@ -101,7 +101,7 @@ class turtle {
         console.log('Current direction AFTER turning RIGHT: ' + this.direction);
     }
 
-    left () {
+    left() {
 
         console.log('Current direction BEFORE turning LEFT: ' + this.direction);
         if (this.direction === 'EAST') {
@@ -124,88 +124,114 @@ class turtle {
         let length = this.allPositions.length;
         console.log("Current allPosition length: " + length);
         //if (length >= 0) { //i.e. the turtle has moved at all
-          //  for (let i = 0; i < length; i++) {
-            //    console.log(this.allPositions[i]);
-            //}
+        //  for (let i = 0; i < length; i++) {
+        //    console.log(this.allPositions[i]);
+        //}
         //}
         return this.allPositions;
-        
+
     }
 
-    print () {
+    print() {
 
-        let maxX = 0;
-        let maxY = 0;
-        let minX = 0;
-        let minY = 0;
+        // let maxX = 0;
+        // let maxY = 0;
+        // let minX = 0;
+        // let minY = 0;
 
         let allPoints = this.allPositions;
-       
-        maxX = Math.max(...allPoints.map(element => {
+
+        let maxX = Math.max(...allPoints.map(element => {
             return element[0];
         }));
-        console.log("Max x: " + maxX);
 
-        maxY = Math.max(...allPoints.map(element => {
+        // console.log("Max x: " + maxX);
+
+        let maxY = Math.max(...allPoints.map(element => {
             return element[1];
         }));
-        console.log("Max Y: " + maxY);
 
-        minX = Math.min(...allPoints.map(element => {
-            return element[0];
-        }));
-        console.log("Min x: " + minX);
+        let a1 = [];
+        for(let x = 0; x < maxY + 1; x++){
+            let a2 = [];
+            for(let y = 0; y < maxX + 1; y++){
+                a2.push('.');
+            };
+            a1.push(a2);
+        };
 
-        minY = Math.min(...allPoints.map(element => {
-            return element[1];
-        }));
-        console.log("Min Y: " + minY);
+        allPoints.forEach((point) => {
+            a1[point[1]][point[0]] = 'x';
+        });
 
-        let length = this.allPoints.length;
+        a1.forEach((pointsArray) => {
+            console.log(pointsArray.join(''));
+        });
 
-        let finalString = "";
-        let normalString = "* ";
-        let newString = "# ";
-        for (let y = minY; y <= maxY; y++){
-            for (let x = minX; x <= maxX; x++) {
-                console.log("x: " + x + "y: " + y);
-                //for (let i = 0; i < this.allPositions.length-1; i++) {
-                    let print = false;
-                    this.allPositions.forEach(element => {
-                        if (element[0] === x && element[1] === y){
-                            finalString += newString;
-                            //print = true;
-                        } 
-                        //else {
-                            //if(!print) {
-                              //  finalString += normalString;
-                            //}    
-                        //}
-                    })
-                }
-            
-                if (y !== maxY) {
-                    finalString = finalString + '\n'; 
-                }
-            }
-        console.log(finalString);
-        return this;
+
+        // console.log("Max Y: " + maxY);
+
+        // minX = Math.min(...allPoints.map(element => {
+        //     return element[0];
+        // }));
+        // console.log("Min x: " + minX);
+
+        // minY = Math.min(...allPoints.map(element => {
+        //     return element[1];
+        // }));
+        // console.log("Min Y: " + minY);
+
+        // let length = this.allPoints.length;
+
+        // let finalString = "";
+        // let normalString = "-";
+        // let newString = "#";
+        // for (let y = minY; y <= maxY; y++) { //row
+        //     for (let x = minX; x <= maxX; x++) { //column
+        //         let print = new Boolean(false);
+        //         console.log("x: " + x + "y: " + y);
+        //         //for (let i = 0; i < this.allPositions.length-1; i++) {
+        //         this.allPositions.forEach(element => {
+        //             if (element[0] === x && element[1] === y) {
+        //                 finalString += newString;
+        //                 print = true;
+        //             }
+        //         })
+        //         if (print) {
+        //             console.log("Final string is: " + finalString);
+        //             finalString += normalString;
+        //         }
+        //     }
+        //     finalString +='\n'
+
+
+        //     // if (y !== maxY) {
+        //     //     finalString = finalString + '\n';
+        //     // }
+        // }
+        // console.log(finalString);
+        // return this;
 
     }
 
 }
 
-let t = new turtle(0,0);
-//console.log(t.allPoints());
-console.log(t.forward(3));
-console.log(t.left());
-console.log(t.forward(1));
-console.log(t.left())
-console.log(t.forward(3));
-console.log(t.allPoints());
-console.log(t.print());
 
-  //console.log(t.forward(3).left().forward(3).right().forward(5).right().forward(8).right().forward(5).right().forward(3).left().forward(3));
+let t = new turtle(0, 0);
+//console.log(t.allPoints());
+//t.forward(3).left().forward(3).left().forward(3).left().forward(3);
+// //console.log(t.left());
+// //console.log(t.forward(1));
+// //console.log(t.left())
+// //console.log(t.forward(3));
+// console.log(t.allPoints());
+// console.log(t.print());
+
+  //t.forward(3).left().forward(3).right().forward(5).right().forward(8).right().forward(5).right().forward(3).left().forward(3);
+  t.forward(3).left().forward(3);
+  console.log(t.allPoints());
+  t.print();
+  //t.print();
   //console.log(t.allPoints());
 
 
